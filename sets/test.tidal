@@ -1,0 +1,10 @@
+-- Evaluate after BootTidal.hs and startup.scd are running.
+
+
+d1 $ sound "bd*1" # tinySmear 1.0
+
+d2 $ s "metal:0*3 <db hh>*20" # tinySmear 0.4
+
+
+
+hush

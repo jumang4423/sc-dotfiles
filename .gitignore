@@ -1,0 +1,18 @@
+.DS_Store
+
+# SuperCollider artifacts
+*.scx
+
+# C/C++ build output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Editor files
+*.swp
+*~
+
+# Local runtime state and logs
+.run/
