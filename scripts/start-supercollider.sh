@@ -9,14 +9,9 @@ sclang_bin=${SCLANG:-sclang}
 
 mkdir -p "$run_dir"
 
-if [[ -f "$pid_file" ]]; then
-    old_pid=$(<"$pid_file")
-    if kill -0 "$old_pid" 2>/dev/null; then
-        echo "SuperCollider is already running (PID $old_pid)"
-        exit 0
-    fi
-    rm -f "$pid_file"
-fi
+# Always begin from a known-clean state. This also catches orphaned scsynth
+# processes and SuperCollider instances that were not started by this repo.
+"$repo_dir/scripts/stop-supercollider.sh" >/dev/null
 
 : >"$log_file"
 nohup python3 "$repo_dir/scripts/sclang-supervisor.py" "$sclang_bin" >"$log_file" 2>&1 &
@@ -25,6 +20,14 @@ echo "$pid" >"$pid_file"
 
 for _ in {1..60}; do
     if grep -q "sc-dotfiles ready" "$log_file"; then
+        supervisors=(${(f)"$(pgrep -f "$repo_dir/scripts/sclang-supervisor.py" 2>/dev/null || true)"})
+        sclangs=(${(f)"$(pgrep -x sclang 2>/dev/null || true)"})
+        scsynths=(${(f)"$(pgrep -x scsynth 2>/dev/null || true)"})
+        if (( ${#supervisors} != 1 || ${#sclangs} != 1 || ${#scsynths} != 1 )); then
+            echo "SuperCollider did not reach a single-instance state" >&2
+            "$repo_dir/scripts/stop-supercollider.sh" >&2
+            exit 1
+        fi
         echo "SuperCollider is ready (PID $pid)"
         exit 0
     fi
@@ -38,6 +41,5 @@ for _ in {1..60}; do
 done
 
 echo "SuperCollider startup timed out; see $log_file" >&2
-kill -TERM "$pid" 2>/dev/null || true
-rm -f "$pid_file"
+"$repo_dir/scripts/stop-supercollider.sh" >/dev/null
 exit 1

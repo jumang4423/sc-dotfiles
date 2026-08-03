@@ -1,7 +1,7 @@
 (
 var effectName = \dirt_tiny_smear;
 var numChannels = ~dirt.numChannels;
-var fftSize = 2048;
+var fftSize = 1024;
 var levelCount = 16;
 var durations = Array.series(
     levelCount,
@@ -24,8 +24,9 @@ spectraByDuration = durations.collect { |duration, durationIndex|
 
         ir = Signal.fill(frameCount, { |sampleIndex|
             var position = sampleIndex / (frameCount - 1);
-            var envelope = exp(-5 * position);
-            var density = position.linlin(0, 1, 0.08, 0.45);
+            var attack = (position / 0.18).clip(0, 1).squared;
+            var envelope = attack * exp(-4.5 * position);
+            var density = position.linlin(0, 1, 0.25, 0.60);
 
             if(density.coin) {
                 1.0.rand2 * envelope
@@ -64,18 +65,14 @@ SynthDef(effectName.asString ++ numChannels, {
         PartConv.ar(source, fftSize, irRight)
     ];
 
-    // Fixed active mix: dry 40%, wet 100%.
-    ReplaceOut.ar(out, (dry * 0.40) + wet);
+    // Fixed active mix: dry 0%, wet 100%.
+    ReplaceOut.ar(out, (dry * 0.0) + wet);
 }, [\ir, \ir, \ir]).add;
 
 ~dirt.addModule(\tiny_smear, { |dirtEvent|
     var amount = ~tinySmear.clip(0, 1);
     var index = (amount * (spectraByDuration.size - 1)).round.asInteger;
     var spectra = spectraByDuration[index];
-    var duration = durations[index];
-
-    // Keep the event group alive long enough to hear the convolution tail.
-    ~sustain = max(~sustain, duration + 0.05);
 
     dirtEvent.sendSynth(effectName.asString ++ numChannels, [
         out: ~out,

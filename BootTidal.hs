@@ -39,6 +39,8 @@ let p = streamReplace tidal
     all = streamAll tidal
     resetCycles = streamResetCycles tidal
     tinySmear = pF "tinySmear"
+    disperser = pF "disperser"
+    disperserFreq = pF "disperserFreq"
 
 :set prompt "tidal> "
 :set prompt-cont ""

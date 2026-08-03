@@ -112,6 +112,7 @@ Matching control parameters may also need to be defined in `BootTidal.hs`.
 Included effects:
 
 - `tiny-smear.scd`: filter-free per-event stereo PartConv reverb controlled only by `tinySmear`
+- `disperser.scd`: per-event cascaded all-pass phase rotation controlled only by `disperser`
 
 ## `samples/`
 
@@ -217,17 +218,26 @@ The external loader path may be machine-specific. Code inside this repository sh
 The normal performance workflow remains VS Code plus the SuperCollider application. Command-line support is also available for repeatable setup and automated checks:
 
 ```text
+make new
 make check
 make start
 make status
 make logs
 make stop
+make restart
+make rec5
+make rec10
+make rec30
 ```
+
+`make new` creates the next set for the current date using `sets/YYMMDD-NN.tidal`. Numbering begins at `01`, increments without overwriting existing files, and supports up to `99` sets per day.
 
 Use `make check` after changing `startup.scd`, SynthDefs, effects, or samples. It boots the complete SuperCollider environment, waits for the ready message, and shuts it down again.
 
 The repository's VS Code workspace setting clears any global custom boot-file override. The TidalCycles extension therefore discovers the local `BootTidal.hs` when this folder is opened.
 
-Use `make start` when a visible SuperCollider IDE is not needed. It runs SuperCollider and SuperDirt in the background and writes output to `.run/supercollider.log`. Use `make stop` to shut down only the process started by this repository.
+Use `make start` when a visible SuperCollider IDE is not needed. It first shuts down any existing SuperCollider, `sclang`, `scsynth`, or `supernova` processes, then starts exactly one background SuperCollider/SuperDirt instance and writes output to `.run/supercollider.log`. `make stop` shuts down every SuperCollider process, escalating from `TERM` to `KILL` when necessary. `make restart` performs a full stop followed by a clean start.
+
+`make rec5`, `make rec10`, and `make rec30` directly record stereo output bus 0 from the running SuperCollider server. Recordings are written to `recordings/` with timestamped filenames.
 
 During a TidalCycles session, evaluate `hush` to stop all active patterns without shutting down SuperCollider.
