@@ -1,19 +1,27 @@
--- Evaluate after BootTidal.hs and startup.scd are running.
+-- 114514_tidal
 
 d4 $ s "808:4*3 808:4*6" 
-    # tinySmear "<0.2 0.9 0.3>"
+   # tinySmear "<0.2 0.9 0.3>"
 
-d1 $ sound "<bd hh metal:8>*2 bd sn*2" # tinySmear "<0.9>" # pan (range 0 1 $ slow 4 sine)
+d1 $ every 2 (fast 2) 
+   $ sound "<bd hh metal:8>*2 bd sn*2" 
+   # tinySmear "<0.9>" 
+   # pan (range 0 1 $ slow 4 sine)
 
-d2 $ s "metal:5*[2 13] [db hh sn]*2" # tinySmear "<0.05 0.2 0.7>"
+d2 $ s "metal:5*[2 13] [db hh sn]*2" 
+   # tinySmear "<0.05 0.2 0.7>"
 
 
-d3 $ s "808:8*<3 2 12> 808:4*3" # tinySmear "<0.05 0.2 1.0 0.3>" # pan (range 0 1 $ slow 4 sine)
-  # disperser 0.9
+d3 $ s "808:8*<3 2 12> 808:4*3" 
+   # tinySmear "<0.05 0.2 1.0 0.3>" 
+   # pan (range 0 1 $ slow 4 sine)
+   # disperser 0.9
 
-d1 $ jux' [id,rev,(# speed 2)] $ every 2 ("<0.25 0.125 0.5>" <~) $ sound "bd*2 [[~ lt] sn:3] lt:1 [ht mt*2]"
-  # squiz "<1 2.5 2>"
-  # tinySmear 0.9
-  # orbit 0
+d1 $ jux' [id,rev,(# speed 2)] 
+   $ every 2 ("<0.25 0.125 0.5>" <~) 
+   $ sound "bd*2 [[~ lt] sn:3] lt:1 [ht mt*2]"
+   # squiz "<1 2.5 2>"
+   # tinySmear 0.9
+   # orbit 0
 
 hush

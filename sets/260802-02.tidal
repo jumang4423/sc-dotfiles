@@ -1,21 +1,31 @@
-// bass test
+-- toy factory (^ ^)
 
-
-hush
-
-d1 $ sound "toys:9"
-  # disperser 0.9
-  # disperserFreq 400.0
-  # tinySmear 0.9
+d2 $ s "<tink:4 tink:3>"
+  # tinySmear 0.8
   # pan (range 0 1 $ slow 4 sine)
+  # gain 2
 
-d5 $ s "hand:7 * 3"
-  # disperser 0.2
-  # tinySmear 0.2
+d1 $ sound "toys:5 <toys:8 _ newnotes:5*9 toys:7 toys:4>"
+  # disperserFreq 500.0
   # pan (range 0 1 $ slow 4 sine)
+  # gain 1.3
 
-d6 $ s "bin perc" <| n (run "<4 18>")
-  # disperser 0.3
-  # tinySmear 0.6
-  # pan (range 0 1 $ slow 4 sine)
+
+d5 $ s "industrial:12* 4" # gain 1.1
+
+
+d3 $ s "[808:8(6,8), bin:4(5,8,2), bd(7,16)]"
+  # gain 1.1
+
+d4 $ s "<hmm _ _>" 
+   # speed 1.6
+   # pan (range 0 1 $ slow 4 sine)
+   # gain 1.1
+
+
+
+-- d5 $ s "perc bd" <| n (run "<4 12>")
+--   # tinySmear 0.4
+--   # disperser 0.3
+--   # pan (range 0 1 $ slow 4 sine)
 
