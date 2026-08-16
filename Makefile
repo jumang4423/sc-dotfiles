@@ -2,7 +2,7 @@ SHELL := /bin/zsh
 SUPERCOLLIDER_APP ?= /Applications/SuperCollider.app
 SCLANG ?= $(SUPERCOLLIDER_APP)/Contents/MacOS/sclang
 
-.PHONY: help new check check-tidal check-supercollider start stop restart status logs rec5 rec10 rec30
+.PHONY: help new check check-tidal check-supercollider start stop restart status logs text.management rec5 rec10 rec30
 
 help:
 	@echo "make new    - create today's next numbered Tidal set"
@@ -12,6 +12,7 @@ help:
 	@echo "make restart - fully stop, then start one SuperCollider instance"
 	@echo "make status - show whether the background process is running"
 	@echo "make logs   - follow the SuperCollider log"
+	@echo "make text.management - start the text.management development server"
 	@echo "make rec5   - record SuperCollider output for 5 seconds"
 	@echo "make rec10  - record SuperCollider output for 10 seconds"
 	@echo "make rec30  - record SuperCollider output for 30 seconds"
@@ -44,6 +45,9 @@ logs:
 	@mkdir -p .run
 	@touch .run/supercollider.log
 	@tail -f .run/supercollider.log
+
+text.management:
+	@npm --prefix "$(CURDIR)/text.management" run desktop -- dev
 
 rec5:
 	@SCLANG="$(SCLANG)" ./scripts/record-supercollider.sh 5
