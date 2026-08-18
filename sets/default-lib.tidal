@@ -2,7 +2,7 @@
 hush
 
 d1 $ s "808" <| n (run 6) -- 6 misc 808 sound
-d1 $ slow 2 $ s "808bd" <| n (run 25) -- 25 rather similar 808 kicks!
+-- d1 $ slow 2 $ s "808bd" <| n (run 25) -- 25 rather similar 808 kicks!
 d1 $ slow 2 $ s "808cy" <| n (run 25) -- 25 808 cymbals
 d1 $ fast 2 $ s "808hc" <| n (run 5) -- 5 808 high congas
 d1 $ fast 2 $ s "808ht" <| n (run 5) -- 5 808 high toms, bit noisy

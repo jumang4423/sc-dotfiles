@@ -3,8 +3,8 @@
 
 d6
   $ (|+ note 13)
-  -- $ (|+ note 36)
-  -- $ (|+ note 0.3)
+  $ (|+ note 36)
+  $ (|+ note 0.3)
   $ sometimes (jux (|+ note 0.07))
   $ sometimes (jux (|+ note (-12)))
   $ sometimes (jux (|+ note (-5)))

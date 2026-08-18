@@ -1,0 +1,10 @@
+
+
+
+d1 $ every 2 (fast 3)$ s "lo:10 cpu2:30*3" 
+
+
+d2 $ s "~ cpu2:12 cpu2:15"
+
+
+d3 $ s "foley:215 cpu2:14"

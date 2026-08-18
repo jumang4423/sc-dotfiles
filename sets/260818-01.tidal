@@ -1,0 +1,26 @@
+-- just added third party samples !
+
+
+d1 $ every 2 (fast 3)$ s "lo:10 cpu2:30*3" 
+
+
+d2 $ s "~ cpu2:12 cpu2:15"
+
+
+d3 $ s "foley:215 cpu2:14"
+
+
+d4 $ s "foley:87 foley:141*3 foley:56"
+
+
+
+d1 $ every 2 (fast 10) 
+   $  n"2 5 3" 
+   # s"<cpu cpu2 industrial>"
+
+
+
+
+
+
+   

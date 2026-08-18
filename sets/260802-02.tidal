@@ -17,7 +17,7 @@ d6
   # sineAttack 0.2
   # sineDecay 0.1
   # sineRelease 0.8
-  # gain 0.6
+  # gain 0.7
   # tinySmear 0.9
 
 d2 $ s "<tink:4 tink:3>"
@@ -36,7 +36,7 @@ d5 $ s "industrial:12* <4 <4 [4 2 [24 8]]>>" # gain 1.2
 
 
 d3 $ s "[808:8(6,8), bin:2(5,8,2), future:1(7,16)]"
-  # gain 1.3
+  # gain 1.4
 
 d4 $ s "<hmm _ _>" 
    # speed 1.6

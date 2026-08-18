@@ -3,6 +3,8 @@
     "tidalcycles.ghciPath": "/opt/homebrew/bin/ghci",
     "python.analysis.extraPaths": [
         "/Users/jumang4423/.vscode-insiders/extensions/benpaddlejones.pico-bridge-2.3.44/emulator/mock/typings",
-        "/Users/jumang4423/.vscode-insiders/extensions/benpaddlejones.pico-bridge-2.3.44/emulator/mock/micropython"
+        "/Users/jumang4423/.vscode-insiders/extensions/benpaddlejones.pico-bridge-2.3.44/emulator/mock/micropython",
+        "/Users/jumang4423/.vscode-insiders/extensions/benpaddlejones.pico-bridge-2.3.46/emulator/mock/typings",
+        "/Users/jumang4423/.vscode-insiders/extensions/benpaddlejones.pico-bridge-2.3.46/emulator/mock/micropython"
     ]
 }

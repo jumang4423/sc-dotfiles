@@ -3,6 +3,7 @@ var root = thisProcess.nowExecutingPath.dirname;
 var synthdefs = root +/+ "synthdefs";
 var effects = root +/+ "effects";
 var samples = root +/+ "samples";
+var thirdPartySamples = root +/+ "tp-samples";
 
 ~scDotfilesLoaded = true;
 
@@ -26,6 +27,8 @@ s.waitForBoot {
     PathName(samples).folders.do { |bank|
         ~dirt.loadSoundFiles(bank.fullPath +/+ "*", true);
     };
+
+    ~dirt.loadSoundFiles(thirdPartySamples +/+ "*", true);
 
     s.sync;
     ~dirt.start(57120, 0 ! 12);
