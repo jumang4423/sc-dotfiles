@@ -4,22 +4,88 @@
 d1 $ every 2 (fast 3)$ s "lo:10 cpu2:30*3" 
 
 
-d2 $ s "~ cpu2:12 cpu2:15"
+d2 $ s "~ cpu2:12 cpu2:15 industrial:4"
 
 
-d3 $ s "foley:215 cpu2:14"
+d3 $ s "foley:21 cpu2:14"
 
 
-d4 $ s "foley:87 foley:141*3 foley:56"
+-- d4 $ s "foley:87 foley:141*3 foley:56"
 
 
 
 d1 $ every 2 (fast 10) 
    $  n"2 5 3" 
-   # s"<cpu cpu2 industrial>"
+   # s"<cpu cpu2 invaders cpu:21>"
+
+
+-- tut3
 
 
 
+d1 $ n "0 3 [5 [4 6 8] 5] [2 ~ 1]"# s "kick"
+
+
+
+d1 $ n "[0 1 2] [0 3 2 6*12]" # s "kick"
+
+
+d1 $ sound "[hi lo*3 hi] [hi lo hi lo] perc"
+   
+d1 $ s "kick!2 hi!2 perc industrial" # cps (saw * 2 + 0.2) 
+
+
+--  /2.5 sounds sick
+ 
+d1 $ s "{hi lo [lo:5*3], clap:3/2}/2.5 {lo [lo:1 ~ hi:1], industrial:3/3}"
+   # tinySmear 0.2
+
+
+d1 $ s "bd sd . mt ht lt . arpy arpy:4 . snare clap:4 bd"
+
+
+-- tut5
+
+
+
+d3 $ s "[foley:18 ~]/2"
+
+d3 $ silence
+
+d4 $ mask "<0 1>"
+   $ s "[hi:4 [lt mt lo]/2.5]*4 , {lo, industrial:3 [perc perc/2.5]}*2"
+   # tinySmear 0.2
+   # vowel "a o e u"
+
+d2 
+   $ mask "<1 0>"
+   $ sometimes (jux (|+ note ("< 12 -5 -12>")))
+   $ sometimes (jux (|+ note 7))
+   $ sometimes (jux (|+ note 7))
+   $ rarely (superimpose (# note (choose [5, 2, -8, 0, -3])))
+   $ n"<20 27>(<3 2 5>,<5 13>) , 27(3,7 . 8)/2" 
+   # s "<strudelSine>"
+   # sineDecay "0.01 0.9"
+   # sineRelease 1.0
+   # gain 1.2
+   # smear 0.4
+   -- # tinySmear 0.2
+
+d1 $ mask "<1 0>"
+   $ s "{hi lo [lo:5*3], clap:3/2}/2.5 {lo [lo:1 ~ hi:1], peri:5(<3 4>,11)}/2.5"
+   # tinySmear 0.3
+
+d5 $ silence
+   
+d5 $ sometimes (fast 1.5) 
+   $ s "[hi(3,5), lo(3,12), industrial:6(5,9)] . {hi lo:3(3,5) industrial:4}/2.5"
+
+
+-- tut 6
+
+d6 $ s "tabla:5(<2 3>,<6 8>)" # gain 2.0 # smear 0.5
+   
+   
 
 
 
