@@ -1,0 +1,54 @@
+setcps 0.6
+
+
+
+
+
+d2 $ jux rev $ mask "[0 [0 1]]/2" $ sometimes (# speed (range 0.1 4.5 sine)) 
+   $ loopAt "0.5 0.1" 
+   $ striate "40" 
+   $ s "em2:5*8"
+   # gain 1.3
+   # unit "c"
+
+
+
+d1 $ jux (# speed (slow saw $ range 2.5 20.5 saw)) 
+  $ mask "[1 0]/2" 
+   $ loopAt "0.5 4 0.25"
+   $ striate "22 10" 
+   $ s "simplesine*<9 30>" 
+   # unit "c"
+   # disperser 0.3
+   # gain 0.9
+   
+
+
+d3 $ loopAt 2 $ s "[east:0!3, perc] ~" # gain 2.0 # smear 0.1
+
+
+d6
+  -- $ (|+ note 12)
+  $ mask "[1 0]/2" 
+  $ (|+ note 46)
+  $ (|+ note 0.3)
+  $ sometimes (jux (|+ note 0.07))
+  $ sometimes (jux (|+ note (-12)))
+  $ sometimes (jux (|+ note (-5)))
+  $ sometimes (jux (|+ note 7))
+  $ rarely (superimpose (# note (choose [5, 2, -8, 0, -3])))
+  $ segment 16
+  $ note "f4 ~ c4 d4 . f3 g4 ~ ~ . f4 d3 g4 c4"
+  # s "strudelSine"
+  # fm 0
+  # sineAttack 0.2
+  # sineDecay 0.1
+  # sineRelease 0.8
+  # gain 0.8
+
+
+
+
+
+
+
