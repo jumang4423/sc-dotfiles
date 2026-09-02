@@ -3,7 +3,7 @@
 d4 $ s "808:4*3 808:4*6" 
    # tinySmear "<0.2 0.9 0.3>"
 
-d1 $ every 2 (fast 2) 
+d1 $ swing 4 $ every 2 (fast 2) 
    $ sound "<bd hh metal:8>*2 bd sn*2" 
    # tinySmear "<0.9>" 
    # pan (range 0 1 $ slow 4 sine)
