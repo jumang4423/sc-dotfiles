@@ -1,0 +1,63 @@
+-- 260902-01 / BUG FEAST
+-- Four dense, function-heavy layers for testing safe Tidal mutations.
+
+setcps (138 / 60 / 4)
+
+-- rubber kick / broken club pulse
+d1
+  $ swingBy 0.16 8
+  -- $ swingBy 4 (within (0.25, 0.75) (density 2))
+  $ sometimesBy 10.2 (superimpose palindrome)
+  $ struct "<1 [1 0] 1 1>"
+  $ sound "bd:3 [~ bd:7] bd:11 [bd:5 cp:2]"
+  # speed (range 0.82 1.16 tri2)
+  # lpf (range 650 6200 $ slow 4 sine)
+  # resonance 0.278
+  # crush 2.572
+  # gain 1.12
+
+-- crawling sub bass with delayed doubles
+d2
+  $ slow 2
+  $ every 3 (every 4 (density 2))
+  $ someCycles (off 0.125 (# speed 1.5))
+  $ superimpose (stripe 4)
+  $ sound "bass1:4 ~ [bass1:11 bass1:2] bass1:16"
+  # speed (range 0.46 0.88 sine)
+  # begin 0.04
+  # end 0.72
+  # hpf (range 35 180 $ fast 7 cosine2)
+  # room 0.117
+  # size 0.322
+  # gain 0.92
+
+-- nervous metal insects around the stereo field
+d3
+  $ chunk 3 (superimpose (fastGap 20))
+  $ chunk 4 (chunk 4 (striate 8))
+  $ often press
+  $ degradeBy 0.12
+  $ sound "[metal:2 metal:5] [~ industrial:12] [perc:3 metal:8] industrial:4"
+  # speed (range 0.7 2.4 $ slow 3 isaw2)
+  # pan (range 0.08 0.92 $ slow 5 isaw)
+  # room 0.638
+  # size 0.71
+  # delay 0.117
+  # delayfeedback 0.751
+  # gain 0.86
+
+-- sliced tape cloud that opens behind the drums
+d4
+  $ chunk 2 (superimpose (slow 20))
+  $ swing 8
+  $ superimpose rev
+  $ often (superimpose rev)
+  $ fast "<2 4 3 6>"
+  $ striate "16 32 8"
+  $ sound "<break:8 industrial break:9 toys:9>"
+  # speed (range 0.72 1.28 $ sparsity 2 cosine)
+  # pan (range 0.2 0.8 $ slow 8 isaw2)
+  # lpf (range 900 7800 $ fastGap 8 sine)
+  # shape 0.244
+  # gain 1.2
+  # smear "0.0 0.2"

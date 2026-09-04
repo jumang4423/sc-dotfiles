@@ -30,14 +30,14 @@ d1 $ n "0 3 [5 [4 6 8] 5] [2 ~ 1]"# s "kick"
 d1 $ n "[0 1 2] [0 3 2 6*12]" # s "kick"
 
 
-d1 $ sound "[hi lo*3 hi] [hi lo hi lo] perc"
+d1 $ sound "[hi lo*3 hi] [hi lo hi lo] "
    
 d1 $ s "kick!2 hi!2 perc industrial" # cps (saw * 2 + 0.2) 
 
 
 --  /2.5 sounds sick
  
-d1 $ s "{hi lo [lo:5*3], clap:3/2}/2.5 {lo [lo:1 ~ hi:1], industrial:3/3}"
+d1 $ s "{hi lo [lo:5*3], clap:3/2}/2.5 {lo [lo:1 ~ hi:1], industrial:4/3}"
    # tinySmear 0.2
 
 
@@ -53,7 +53,7 @@ d3 $ s "[foley:18 ~]/2"
 d3 $ silence
 
 d4 $ mask "<1 0>"
-   $ s "[hi:4 [lt mt lo]/2.5]*4 , {lo, industrial:3 [perc perc/2.5]}*2"
+   $ s "[hi:4 [lt mt lo]/2.5]*4 , {lo, industrial:3 [perc perc*3/2.5]}*2"
    # tinySmear 0.2
    # vowel "a o e u"
    

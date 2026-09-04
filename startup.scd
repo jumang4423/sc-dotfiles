@@ -24,9 +24,7 @@ s.waitForBoot {
         .select { |file| file.extension == "scd" }
         .do { |file| file.fullPath.load };
 
-    PathName(samples).folders.do { |bank|
-        ~dirt.loadSoundFiles(bank.fullPath +/+ "*", true);
-    };
+    ~dirt.loadSoundFiles(samples +/+ "*", true);
 
     ~dirt.loadSoundFiles(thirdPartySamples +/+ "*", true);
 
