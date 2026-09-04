@@ -1,0 +1,3 @@
+[submodule "text.management"]
+	path = text.management
+	url = git@github.com:jumang4423/text.management.git

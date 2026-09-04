@@ -16,6 +16,3 @@ compile_commands.json
 
 # Local runtime state and logs
 .run/
-
-# Independent local checkout used by `make text.management`
-/text.management/
