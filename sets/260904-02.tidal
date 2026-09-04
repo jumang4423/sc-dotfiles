@@ -1,0 +1,28 @@
+
+
+
+
+
+あ
+
+
+
+
+
+d2 $ loopAt 2 $ chop 30 $ s "funny:3"
+
+
+d1 $ swingBy 0.2 4 
+   $ jux brak
+   $ loopAt 2
+   $ n "<8 6>*<3 4> <12 14 16>*2 <14 9>*<3 6> <18 12>" # s "mc" # speed "0.5 2"
+
+
+d3 $ often (loopAt 1) 
+   $ s "funny:4"
+
+
+d4 $ s "<bd*4 [bd!2 bd*3]>"
+
+
+あ
