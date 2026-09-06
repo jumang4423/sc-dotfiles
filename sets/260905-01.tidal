@@ -1,0 +1,28 @@
+-- mc test
+
+
+
+setcps 0.6
+
+
+
+d1 $ swingBy 0.1 8 
+   $ superimpose 
+   (#speed (range 0.2 20.0 tri2)) 
+   $ s "mc mc:1 <mc:4 mc:9*6>" 
+   # gain 1.0
+
+
+
+d2 $ swingBy 0.1 4 $ loopAt 2 $ fast "1 2"
+   $ sound 
+   "mc:15 [mc:23*2 <funny:13 funny:19*2 funny:16>]" 
+   # speed 4.28
+
+
+
+
+
+
+
+   a
