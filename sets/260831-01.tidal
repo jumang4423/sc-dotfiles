@@ -61,13 +61,13 @@ d1 $ loopAt 4 $ chop 4 $ sound "break:8"
 d1 $ loopAt 2 $ rev $ chop 4 $ sound "break:8"
 
 -- If we slow the pattern we can hear each part separately:
-d1 $ slow 2 $ loopAt 2 $ chop 4 $ sound "break:8"
+d1 $  2 $ loopAt 2 $ chop 4 $ sound "break:8"
 
 -- Here's a different sample:
 d1 $ slow 2 $ loopAt 2 $ chop 4 $ sound "break:9"
 
 -- Now what happens if we put both breaks in the sequence?
-d1 $ slow 2 $ loopAt 2 $ chop 4 $ sound "break:8 break:9"
+d1 $ slow 2 $ density 2 $ chop 4 $ sound "break:8 break:9"
 
 -- With 'chop', it will play all the parts of break:8, followed by
 -- all the parts of 'break:9'.
@@ -89,7 +89,7 @@ once $ sound "break:1"
 -- 'bev' is an even longer sample..
 d1 $ loopAt 16 $ striate 32 $ sound "bev"
 
-d1 $ slow 20 $ jux rev $ loopAt 2 $ striate 128 $ sound "bev*6"
+d1 $ fast 20 $ jux rev $ loopAt 2 $ chop 128 $ sound "funny:25*6"
 
 setcps 0.55
 

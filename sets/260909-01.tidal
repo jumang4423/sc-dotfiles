@@ -1,0 +1,24 @@
+
+a
+
+
+
+
+
+
+
+
+
+d1 $ sometimes (jux loopFirst)
+   $ s "funny:5 funny:15*[1|3] funny:4*3 funny:13 funny:10(2,7,1)"
+
+
+
+
+d2 $ s "~ funny:19(2, 7)" # speed 0.823
+
+
+
+
+
+a

@@ -56,6 +56,12 @@ d4 $ mask "<1 0>"
    $ s "[hi:4 [lt mt lo]/2.5]*4 , {lo, industrial:3 [perc perc*3/2.5]}*2"
    # tinySmear 0.2
    # vowel "a o e u"
+
+
+d4 $ mask "<1 0>"
+   $ s "[mc:4 [lt yume:5 yume:2]/2.5]*4 , {mc:2, yume:3 [yume:4 yume:2*3/2.5]}*2"
+   # tinySmear 0.2
+   # vowel "a o e u"
    
 d2 $ silence
 
@@ -85,7 +91,7 @@ d5 $ sometimes (fast 1.5)
 
 -- tut 6
 
-d6 $ s "tabla:5(<2 3>,<6 8>)" # gain 1.2 # smear 0.5
+d6 $ swingBy 0.1 8 $ fast 2 $ s "tabla:5(<2 3>,<6 8>)" # gain 1.2 # smear 0.5
    
    
 

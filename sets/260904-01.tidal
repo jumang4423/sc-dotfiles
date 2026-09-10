@@ -5,31 +5,29 @@
 
 
 
--- d4 $ jux rev $ often (superimpose 
---    (# note (choose [5, 2, -8, 0, -3]))) 
---    $ s "funny:15*2 ul"
---    # speed 2
+d4 $ jux rev $ often (superimpose 
+   (# note (choose [5, 2, -8, 0, -3]))) 
+   $ s "funny:15*2 ul"
+   # speed 2
 
 
 
 
-d1 $ chunk 2 (superimpose (fastGap 20))
-   $ striate "3 4 8 12" $ s "funny:20 funny:19" 
-   # speed (range 0.4 1.28 $ fast 4 rand)
-   # gain 1.15
+d1 $ striate "3 4 8 12" 
+   $ s "funny:20 [funny:19 ~]" 
 
 
+d4 $ s "bd*4"
 
 
-d3 $ s "hi*<4 <4 [4 2 [24 8]]>>" 
+d3 $ s "funny:25*<4 <4 [4 2 [24 8]]>>" 
    # speed (range 0.4 2.0 rand) # gain 1.3
 
 
-d2 $ loopAt 2 $ s "~ em2*2" 
-   # unit "c" 
+d2 $ loopAt 2 $ 0.005 <~ s "~ yume:6*2"  
    # speed "[1.338 1.06]/2.5"
    # tinySmear 0.5
-   # gain 1.3
+   # gain 1.1
 
 
 

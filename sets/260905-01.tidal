@@ -8,20 +8,23 @@ setcps 0.6
 
 d1 $ swingBy 0.1 8 
    $ superimpose 
-   (#speed (range 0.2 20.0 tri2)) 
+   (#speed (range 0.2 20.0 saw2)) 
    $ s "mc mc:1 <mc:4 mc:9*6>" 
    # gain 1.0
 
 
 
-d2 $ swingBy 0.1 4 $ loopAt 2 $ fast "1 2"
+d2 $ swingBy 0.1 4 $ density 2 $ fast "1 2"
    $ sound 
-   "mc:15 [mc:23*2 <funny:13 funny:19*2 funny:16>]" 
-   # speed 4.28
+   "mc:15 [mc:23*4 <funny:13 funny:19*2 funny:16>]" 
+   # speed 2
 
 
 
-
+d3 $ swingBy 0.1 8 
+   $ n "[0 [2 | 3]|1 5] [1*3|6*9|3 4 5] 2 4" 
+   # sound "yume"
+   # speed 0.8
 
 
 

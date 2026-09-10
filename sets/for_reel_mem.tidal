@@ -1,0 +1,73 @@
+-- memo goes here
+
+
+setcps 0.62
+
+
+-- some cute patturn.
+
+d7 $ s "~ funny:19(2, 7)" 
+   # speed 1
+
+
+
+-- i love swinged sound. (especially mc:9*6, sounds like bongo hitting. )
+d1 $ swingBy 0.1 8 
+   $ s "mc:0 ~ <mc:4 mc:9*6>" 
+   # gain 1.0 # speed 1.5
+
+-- 
+-- hmmm..
+d2 $ swingBy 0.1 4 $ density 2 $ fast "1 2"
+   $ 0.035 
+   <~ sound "mc:15 [~ <funny:13 funny:19*2 funny:16>]" 
+   # speed 1.5
+
+
+-- for low frequency atmosphere sometimes ? 
+d2 $ loopAt 2$ 0.005 <~ s "~ yume:6*2"  
+   # speed "[4.338 1.06]/2.5"
+   # gain 1.2
+
+
+-- funniest goofy sound patturn 
+d1 $ swingBy 0.1 8 $ striate "3 4 8 12" 
+   $ s "funny:20 [funny:19 ~]" 
+   # speed 1.1
+
+
+-- maybe jersey ??? idunno
+d7 $ swingBy 0.1 8 $ fast 2 
+   $ s "tabla:5(<2 3>,<6 8>)" # gain 1.3
+
+
+-- or just normal 4 lkickbus
+d7 $ 0.01 <~ s "tabla:5*4" 
+   # gain 1.3
+
+
+-- head of patturn
+d5 $ s "<hmm _ _>" 
+   # speed "<1.7 1.9 3>/2.5"
+   # pan (range 0 1 $ slow 4 sine)
+   # gain 1.3
+
+
+d3 $ swingBy 0.1 8 
+   $ s "yume:2(5,8,2), funny:4(2,6,3)"
+  # gain 1.2
+  # speed 1.3
+
+
+-- i wanna play sometimes ? like once per like 4 cycles ?
+-- since sounds cool , visually cool two
+
+d6 $ mask "<1 0>" $ s "~ newnotes:5*9" 
+   # gain 1.2 # legato 0.5
+
+
+d4 $ 0.02 <~ s "<tink:4 tink:3>"
+  # tinySmear 0.8
+  # pan (range 0 1 $ slow 4 sine)
+  # gain 1.6
+  # legato 0.5
